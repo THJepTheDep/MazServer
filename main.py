@@ -2,7 +2,7 @@ from time import sleep
 from progress.bar import Bar
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
-HOST = "192.168.0.107"
+HOST = input("IPV4: ")
 PORT = 9999
 
 login_or_signup = input("Login or sign up login/signup: ")
@@ -60,8 +60,6 @@ if password_correct == "Password Correct!":
             sleep(0.02)
             bar.next()
 
-#Server
-
     class NeuralHTTP(BaseHTTPRequestHandler):
 
         def do_GET(self):
@@ -73,7 +71,7 @@ if password_correct == "Password Correct!":
 
 
 server = HTTPServer((HOST, PORT), NeuralHTTP)
-print("Server Now Running On HOST:", (HOST), "PORT:", (PORT), "| Copy Paste:",(HOST),":",(PORT))
+print("Server Now Running On HOST:", HOST, "PORT:", PORT, "| Copy Paste:",HOST,":",PORT)
 print("Paste without spaces")
 
 server.serve_forever()
